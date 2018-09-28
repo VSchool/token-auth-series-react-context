@@ -6,7 +6,8 @@ class LoginForm extends Component {
         super();
         this.state = {
             username: "",
-            password: ""
+            password: "",
+            errorMessage: ""
         }
     }
 
@@ -54,7 +55,10 @@ class LoginForm extends Component {
                     <button type="submit">Submit</button>
                 </form>
 
-                {this.state.errorMessage && <p style={{color: "red"}}>{this.state.errorMessage}</p>}
+                {
+                    this.state.errorMessage &&
+                    <p style={{color: "red"}}>{this.state.errorMessage}</p>
+                }
 
             </div>
         )
