@@ -26,7 +26,7 @@ authRouter.post("/login", (req, res, next) => {
         if (err) {
             res.status(500);
             return next(err);
-        } else if (!user || user.password !== req.body.password) {
+        } else if (!user) {
             res.status(403);
             return next(new Error("Username or password are incorrect"));
         }
