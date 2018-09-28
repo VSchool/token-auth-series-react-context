@@ -29,7 +29,7 @@ userSchema.pre("save", function (next) {
     });
 });
 
-userSchema.methods.checkPassword = function(passwordAttempt, callback) {
+userSchema.methods.checkPassword = function (passwordAttempt, callback) {
     bcrypt.compare(passwordAttempt, this.password, (err, isMatch) => {
         if (err) return callback(err);
         callback(null, isMatch);
