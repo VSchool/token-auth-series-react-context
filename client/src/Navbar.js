@@ -7,31 +7,31 @@ function Navbar(props) {
         <nav className="navbar-wrapper">
 
             {
-                !props.token &&
-                <React.Fragment>
-                    <div className="nav-link">
-                        <Link to="/signup">Sign Up</Link>
-                    </div>
+                !props.token ?
+                    <React.Fragment>
+                        <div className="nav-link">
+                            <Link to="/signup">Sign Up</Link>
+                        </div>
 
-                    <div className="nav-link">
-                        <Link to="/login">Log In</Link>
-                    </div>
+                        <div className="nav-link">
+                            <Link to="/login">Log In</Link>
+                        </div>
 
-                    <div className="nav-link">
-                        <Link to="/todos">Todos</Link>
-                    </div>
+                    </React.Fragment>
+                :
+                    <React.Fragment>
+                        <div className="nav-link">
+                            <Link to="/todos">Todos</Link>
+                        </div>
 
-                    <div className="nav-link">
-                        <Link to="/profile">Profile</Link>
-                    </div>
-                </React.Fragment>
-            }
+                        <div className="nav-link">
+                            <Link to="/profile">Profile</Link>
+                        </div>
 
-            {
-                props.token &&
-                <div className="nav-link">
-                    <button onClick={() => props.logout()}>Logout</button>
-                </div>
+                        <div className="nav-link">
+                            <button onClick={() => props.logout()}>Logout</button>
+                        </div>
+                    </React.Fragment>
             }
         </nav>
     )
