@@ -6,7 +6,8 @@ class Signup extends Component {
         super();
         this.state = {
             username: "",
-            password: ""
+            password: "",
+            errorMessage: ""
         }
     }
 
@@ -28,6 +29,9 @@ class Signup extends Component {
         e.preventDefault();
         this.props.signup(this.state)
             .then(() => this.props.history.push("/todos"))
+            .catch(err => {
+                this.setState({errorMessage: err.response.data.message})
+            })
     }
 
     render() {
@@ -49,6 +53,12 @@ class Signup extends Component {
                         placeholder="Password"/>
                     <button type="submit">Create Account</button>
                 </form>
+
+                {
+                    this.state.errorMessage &&
+                    <p style={{color: "red"}}>{this.state.errorMessage}</p>
+                }
+
             </div>
         )
     }
