@@ -25,10 +25,6 @@ function Navbar(props) {
                         </div>
 
                         <div className="nav-link">
-                            <Link to="/profile">Profile</Link>
-                        </div>
-
-                        <div className="nav-link">
                             <button onClick={() => props.logout()}>Logout</button>
                         </div>
                     </React.Fragment>
